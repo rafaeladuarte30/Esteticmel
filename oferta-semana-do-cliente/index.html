@@ -233,7 +233,7 @@
     .preco-por{font-size:36px}
     .btn-bloco{display:inline-flex; width:auto; justify-self:center; margin:0 auto; padding:19px 48px; font-size:18px}
     .dores{grid-template-columns:1fr 1fr}
-    .passos{grid-template-columns:1fr 1fr}
+    .passos{grid-template-columns:repeat(3, 1fr)}
     .autora{display:grid; grid-template-columns:.85fr 1.15fr; align-items:stretch}
     .autora-foto{height:100%; min-height:420px}
     .autora-foto::after{inset:0 -1px 0 auto; width:38%; height:auto; background:linear-gradient(to right, rgba(46,74,18,0), var(--verde-escuro))}
@@ -245,8 +245,19 @@
     .etapa h3{padding-top:0}
     .unidades{grid-template-columns:1fr 1fr}
     .rodape{padding-bottom:44px}
-    .final h2{max-width:23ch}
-    .final-sub{font-size:17px}
+    .final .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      text-align: left;
+      align-items: center;
+      gap: 16px 40px;
+    }
+    .final h2 { grid-column: 1; grid-row: 1; max-width: 100%; margin: 0; }
+    .final-sub { grid-column: 1; grid-row: 2; max-width: 100%; margin: 0; font-size: 17px; }
+    .final-preco { grid-column: 2; grid-row: 1; justify-self: end; margin: 0; }
+    .final .btn-bloco { grid-column: 2; grid-row: 2; justify-self: end; margin: 0; }
+    .final .nota { grid-column: 2; grid-row: 3; justify-self: end; text-align: right; }
     .fixo{display:none}
   }
   @media (prefers-reduced-motion:reduce){
@@ -298,7 +309,7 @@
       </div>
 
       <span class="vagas"><i class="ponto"></i>Apenas 20 vagas · restam poucas</span>
-      <a class="btn btn-bloco" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120." target="_blank" rel="noopener">Quero minha vaga por R$ 120</a>
+      <a class="btn btn-bloco" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120.%20Vim%20pelo%20site." target="_blank" rel="noopener">Quero minha vaga por R$ 120</a>
       <p class="selo-zap">Fala direto com a Esmeralda no WhatsApp. Você garante o preço hoje e agenda a sessão quando quiser.</p>
     </div>
   </div>
@@ -327,7 +338,7 @@
       </li>
     </ul>
     <p class="virada rev">Em uma hora, o detox tira o excesso de líquido, solta a tensão e devolve a leveza que sumiu na correria.</p>
-    <a class="btn btn-bloco rev" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120." target="_blank" rel="noopener" style="margin-top:22px">Quero desinchar por R$ 120</a>
+    <a class="btn btn-bloco rev" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120.%20Vim%20pelo%20site." target="_blank" rel="noopener" style="margin-top:22px">Quero desinchar por R$ 120</a>
   </div>
 </section>
 
@@ -432,7 +443,7 @@
     <h2 class="rev">Seu corpo não precisa esperar travar</h2>
     <p class="final-sub rev d1">O cuidado que transforma começa com você — e começa com uma mensagem.</p>
     <div class="final-preco rev d2"><s>R$ 220</s><b>R$ 120<i>à vista · 1 hora de sessão</i></b></div>
-    <a class="btn btn-claro btn-bloco rev d3" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120." target="_blank" rel="noopener">Garantir meu detox agora</a>
+    <a class="btn btn-claro btn-bloco rev d3" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120.%20Vim%20pelo%20site." target="_blank" rel="noopener">Garantir meu detox agora</a>
     <p class="nota rev d3">Válido até 25/09 · 20 vagas · Stella Maris e Caminho das Árvores</p>
   </div>
 </section>
@@ -459,7 +470,7 @@
     <span class="fixo-tempo" id="r1">Acaba em 00d 00h 00m</span>
     <span class="fixo-preco"><s>R$ 220</s>R$ 120</span>
   </div>
-  <a class="btn" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120." target="_blank" rel="noopener">Garantir minha vaga</a>
+  <a class="btn" href="https://wa.me/5571997110471?text=Ol%C3%A1%21%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20%2815%20a%2025/09%29%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R%24%20120.%20Vim%20pelo%20site." target="_blank" rel="noopener">Garantir minha vaga</a>
 </div>
 
 <script>
