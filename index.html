@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana do Cliente Esteticmel | Detox Corporal</title>
+    <meta name="description" content="Garanta seu Detox Corporal na Esteticmel por R$ 120 na Semana do Cliente. Desinchar, desinflamar e recuperar sua disposição.">
+    
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    sand: {
+                        50: '#FDFBF7',
+                        100: '#F9F6F0',
+                        200: '#F0EBE1',
+                        300: '#E6DCC8',
+                        800: '#5C5441',
+                        900: '#4A4231'
+                    },
+                    olive: {
+                        50: '#F4F7F4',
+                        100: '#E4ECE5',
+                        400: '#8DA593',
+                        500: '#75907B',
+                        800: '#3A4D40',
+                        900: '#2F3E1E', // Dark Olive
+                        950: '#1F2914',
+                    },
+                    terracotta: {
+                        50: '#FCF5F3',
+                        100: '#F7E7E1',
+                        300: '#EABCAE',
+                        400: '#E09983',
+                        500: '#C37C63',
+                        600: '#A6634D',
+                        900: '#4D2A20'
+                    }
+                },
+                fontFamily: {
+                    'cormorant': ['"Cormorant Garamond"', 'serif'],
+                    'sans': ['Inter', 'sans-serif'],
+                },
+                boxShadow: {
+                    'glass': '0 8px 32px 0 rgba(47, 62, 30, 0.05)',
+                    'glow': '0 0 20px rgba(195, 124, 99, 0.3)',
+                }
+            }
+        }
+    }
+    </script>
+    <style>
+        body { scroll-behavior: smooth; }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Subtle organic floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+</head>
+<body class="antialiased text-olive-900 selection:bg-terracotta-100 selection:text-terracotta-900 bg-sand-50 overflow-x-hidden font-sans">
+
+    <!-- Subtle Background Organic Gradients -->
+    <div class="fixed top-0 right-0 bottom-0 left-0 z-[-1] bg-sand-50 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-terracotta-100/50 rounded-full blur-[100px] mix-blend-multiply opacity-60"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-olive-100/60 rounded-full blur-[120px] mix-blend-multiply opacity-70"></div>
+    </div>
+
+    <!-- 1. Sticky Banner no Topo -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-sand-50/80 backdrop-blur-xl border-b border-olive-900/5 p-4 transition-all duration-300" id="main-header">
+        <div class="max-w-[1400px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Logo -->
+                <img src="logo.png" alt="Esteticmel Logo" class="h-10 md:h-12 w-auto object-contain brightness-0 opacity-80 mix-blend-multiply">
+                <div class="hidden md:flex items-center gap-3 text-sm text-olive-800 border-l border-olive-900/10 pl-6">
+                    <span class="text-terracotta-600 font-semibold bg-terracotta-50 px-2 py-0.5 rounded text-xs tracking-widest uppercase border border-terracotta-100">Oferta</span>
+                    <span class="font-cormorant font-medium tracking-wide text-sm md:text-base">SEMANA DO CLIENTE • De 15 a 25 de Set.</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-5">
+                <div class="flex gap-2 font-mono text-terracotta-600 bg-white/50 px-3 py-1 rounded-lg border border-olive-900/5 text-xs md:text-sm font-semibold shadow-sm" id="topCountdown">
+                    <div class="flex flex-col items-center"><span id="top-days">09</span><span class="text-[8px] font-sans text-olive-400 uppercase">Dias</span></div> :
+                    <div class="flex flex-col items-center"><span id="top-hours">14</span><span class="text-[8px] font-sans text-olive-400 uppercase">Hrs</span></div> :
+                    <div class="flex flex-col items-center"><span id="top-mins">35</span><span class="text-[8px] font-sans text-olive-400 uppercase">Min</span></div> :
+                    <div class="flex flex-col items-center"><span id="top-secs">42</span><span class="text-[8px] font-sans text-olive-400 uppercase">Seg</span></div>
+                </div>
+                
+                <a href="https://wa.me/5571997110471?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20(15%20a%2025/09)%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R$%20120." target="_blank" class="hidden md:flex hover:bg-terracotta-600 hover:text-white transition-colors text-xs font-medium text-terracotta-500 bg-terracotta-50 border border-terracotta-100 rounded-full px-5 py-2.5 items-center gap-2 tracking-wide uppercase shadow-sm">
+                    Garantir Vaga
+                    <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 w-full flex flex-col mt-32 md:mt-24">
+
+        <!-- 2. Seção Hero -->
+        <section class="flex flex-col w-full max-w-[1400px] mx-auto px-6 md:px-12 py-12 lg:py-16 md:min-h-[85vh] justify-center relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Text / Titles -->
+                <div class="lg:col-span-6 flex flex-col gap-6 reveal-on-scroll is-visible xl:pr-10">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="text-xs font-medium uppercase tracking-widest text-terracotta-600">01 // Detox Corporal</span>
+                            <div class="h-px w-12 bg-olive-200"></div>
+                        </div>
+                        
+                        <h1 class="text-5xl md:text-6xl lg:text-[5.5rem] text-olive-900 leading-[1.1] lg:leading-[1.05] tracking-tight font-cormorant font-medium">
+                            Desinchar,<br>
+                            <span class="text-terracotta-500 italic">desinflamar</span><br>
+                            e recuperar.
+                        </h1>
+                    </div>
+                    
+                    <p class="text-lg md:text-xl text-olive-800/80 font-light leading-relaxed max-w-xl mt-4">
+                        Drenagem metabólica integrativa e ativos ortomoleculares para eliminar líquidos retidos, diminuir a sensação de peso e reativar sua circulação em uma única sessão.
+                    </p>
+                    
+                    <!-- Pricing Card Float -->
+                    <div class="mt-6 p-8 bg-white/70 backdrop-blur-xl rounded-[2rem] border border-white shadow-glass max-w-md relative animate-float">
+                        <span class="inline-block px-3 py-1 bg-terracotta-50 text-terracotta-600 border border-terracotta-100 text-xs font-semibold uppercase tracking-wider rounded-full mb-6">
+                            Oferta Semana do Cliente
+                        </span>
+                        
+                        <div class="flex items-baseline gap-4 mb-2">
+                            <span class="text-5xl font-cormorant font-bold tracking-tight text-olive-900">R$ 120</span>
+                            <span class="text-lg text-olive-400 line-through font-sans">R$ 220</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-terracotta-600 font-semibold text-xs tracking-widest uppercase mb-4 mt-2">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-terracotta-500"></span>
+                            </span>
+                            SÓ 20 VAGAS DISPONÍVEIS
+                        </div>
+                        <p class="text-sm text-olive-800/70 mb-8">Economia imediata de R$ 100. Compre até 25 de Setembro e agende sua melhor data.</p>
+                        
+                        <a href="https://wa.me/5571997110471?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20(15%20a%2025/09)%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R$%20120." target="_blank" class="w-full justify-center group hover:bg-olive-950 transition-all duration-300 flex text-white bg-olive-900 rounded-full py-4 px-8 shadow-lg hover:shadow-xl items-center gap-3">
+                            <span class="text-sm tracking-wider uppercase font-medium">Garantir no WhatsApp</span>
+                            <iconify-icon icon="lucide:message-circle" class="w-4 h-4"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side Image / Countdown / UI -->
+                <div class="lg:col-span-6 h-full flex flex-col justify-center reveal-on-scroll delay-200 relative">
+                    <!-- Decorator Elements -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-terracotta-100 rounded-full blur-2xl z-0"></div>
+                    <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-olive-100 rounded-full blur-3xl z-0"></div>
+
+                    <div class="w-full relative rounded-t-full rounded-b-[3rem] overflow-hidden group shadow-2xl border-4 border-white z-10 aspect-[4/5] md:aspect-auto md:h-[600px] lg:h-[720px]">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Massagem Estética e Relaxamento" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000">
+                        
+                        <!-- Soft gradient overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-olive-950/60 via-transparent to-transparent"></div>
+                        
+                        <div class="absolute bottom-8 left-8 right-8 p-6 bg-white/90 backdrop-blur-md rounded-3xl border border-white/50 flex flex-col items-center shadow-glass">
+                            <p class="text-[10px] uppercase tracking-widest text-olive-500 mb-3 font-semibold">A oferta encerra em</p>
+                            <div class="flex gap-6 font-cormorant text-3xl md:text-4xl text-terracotta-600 font-medium" id="mainCountdown">
+                                <div class="flex flex-col items-center"><span id="main-days">09</span><span class="text-[10px] text-olive-400 uppercase font-sans font-medium tracking-widest mt-1">Dias</span></div>
+                                <div class="text-olive-200 font-sans">:</div>
+                                <div class="flex flex-col items-center"><span id="main-hours">14</span><span class="text-[10px] text-olive-400 uppercase font-sans font-medium tracking-widest mt-1">Hrs</span></div>
+                                <div class="text-olive-200 font-sans">:</div>
+                                <div class="flex flex-col items-center"><span id="main-mins">35</span><span class="text-[10px] text-olive-400 uppercase font-sans font-medium tracking-widest mt-1">Min</span></div>
+                                <div class="text-olive-200 font-sans">:</div>
+                                <div class="flex flex-col items-center"><span id="main-secs">42</span><span class="text-[10px] text-olive-400 uppercase font-sans font-medium tracking-widest mt-1">Seg</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Pain Points -->
+        <section class="w-full py-24 md:py-32 relative">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal-on-scroll">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-medium uppercase tracking-widest text-terracotta-600">02 // Sintomas</span>
+                            <div class="h-px w-12 bg-olive-200"></div>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl text-olive-900 tracking-tight font-cormorant font-medium">
+                            O corpo avisa quando <br><span class="text-terracotta-500 italic">atinge o limite.</span>
+                        </h2>
+                    </div>
+                    <p class="max-w-md text-olive-800/70 text-sm md:text-base leading-relaxed font-light">
+                        Identifique os sinais de que seu metabolismo está precisando de descompressão, cuidado e um estímulo imediato.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-8 bg-white rounded-[2rem] border border-olive-900/5 hover:border-terracotta-200 hover:shadow-glass transition-all duration-500 group reveal-on-scroll">
+                        <div class="w-14 h-14 bg-sand-100 rounded-2xl flex items-center justify-center mb-6 text-terracotta-500 group-hover:bg-terracotta-50 group-hover:text-terracotta-600 transition-colors">
+                            <iconify-icon icon="lucide:waves" width="28"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-olive-900 mb-3 font-cormorant font-semibold">Inchaço Pesado</h3>
+                        <p class="text-sm text-olive-800/70 leading-relaxed font-light">Roupas apertando e abdômen estufado logo ao acordar ou ao fim de um dia cansativo.</p>
+                    </div>
+                    
+                    <div class="p-8 bg-white rounded-[2rem] border border-olive-900/5 hover:border-terracotta-200 hover:shadow-glass transition-all duration-500 group reveal-on-scroll delay-100">
+                        <div class="w-14 h-14 bg-sand-100 rounded-2xl flex items-center justify-center mb-6 text-terracotta-500 group-hover:bg-terracotta-50 group-hover:text-terracotta-600 transition-colors">
+                            <iconify-icon icon="lucide:footprints" width="28"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-olive-900 mb-3 font-cormorant font-semibold">Pernas Cansadas</h3>
+                        <p class="text-sm text-olive-800/70 leading-relaxed font-light">Retenção hídrica visível e má circulação agravada pela rotina intensa e estresse.</p>
+                    </div>
+
+                    <div class="p-8 bg-white rounded-[2rem] border border-olive-900/5 hover:border-terracotta-200 hover:shadow-glass transition-all duration-500 group reveal-on-scroll delay-200">
+                        <div class="w-14 h-14 bg-sand-100 rounded-2xl flex items-center justify-center mb-6 text-terracotta-500 group-hover:bg-terracotta-50 group-hover:text-terracotta-600 transition-colors">
+                            <iconify-icon icon="lucide:activity" width="28"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-olive-900 mb-3 font-cormorant font-semibold">Metabolismo Lento</h3>
+                        <p class="text-sm text-olive-800/70 leading-relaxed font-light">Sensação de inflamação corporal que apenas beber água ou exercícios não aliviam rápido.</p>
+                    </div>
+
+                    <div class="p-8 bg-white rounded-[2rem] border border-olive-900/5 hover:border-terracotta-200 hover:shadow-glass transition-all duration-500 group reveal-on-scroll delay-300">
+                        <div class="w-14 h-14 bg-sand-100 rounded-2xl flex items-center justify-center mb-6 text-terracotta-500 group-hover:bg-terracotta-50 group-hover:text-terracotta-600 transition-colors">
+                            <iconify-icon icon="lucide:sparkles" width="28"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-olive-900 mb-3 font-cormorant font-semibold">Estresse Tecidual</h3>
+                        <p class="text-sm text-olive-800/70 leading-relaxed font-light">Nódulos de tensão muscular acumulados nas costas e falta de vitalidade visível na pele.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Protocol -->
+        <section class="w-full py-24 md:py-32 relative bg-white border-y border-olive-900/5">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div class="lg:col-span-5 reveal-on-scroll">
+                        <div class="sticky top-32">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-xs font-medium uppercase tracking-widest text-terracotta-600">03 // Metodologia</span>
+                                <div class="h-px w-12 bg-olive-200"></div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl text-olive-900 tracking-tight font-cormorant font-medium mb-6">
+                                Protocolo focado em <br><span class="text-terracotta-500 italic">resultado imediato.</span>
+                            </h2>
+                            <p class="text-olive-800/80 text-base leading-relaxed mb-8 font-light">
+                                1 hora completa de atenção ao seu corpo. Cada etapa do nosso Detox Corporal foi desenhada minuciosamente para promover o máximo de esvaziamento de toxinas e um profundo relaxamento muscular.
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1544161513-018ceefec07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Óleos essenciais" class="rounded-[2rem] w-full h-64 object-cover shadow-glass">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-7 flex flex-col gap-6">
+                        <div class="p-8 bg-sand-50 rounded-[2rem] border border-olive-900/5 flex gap-6 group hover:bg-white hover:shadow-glass transition-all duration-300 reveal-on-scroll">
+                            <div class="w-14 h-14 bg-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-cormorant text-terracotta-500 shadow-sm border border-olive-900/5">1</div>
+                            <div>
+                                <h3 class="text-2xl text-olive-900 font-cormorant font-semibold mb-2">Avaliação Clínica Integrativa</h3>
+                                <p class="text-olive-800/70 text-sm font-light leading-relaxed">Análise rápida, holística e precisa das áreas críticas de retenção hídrica e inflamação tecidual do seu corpo.</p>
+                            </div>
+                        </div>
+                        <div class="p-8 bg-sand-50 rounded-[2rem] border border-olive-900/5 flex gap-6 group hover:bg-white hover:shadow-glass transition-all duration-300 reveal-on-scroll delay-100">
+                            <div class="w-14 h-14 bg-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-cormorant text-terracotta-500 shadow-sm border border-olive-900/5">2</div>
+                            <div>
+                                <h3 class="text-2xl text-olive-900 font-cormorant font-semibold mb-2">Drenagem Linfática Metabólica</h3>
+                                <p class="text-olive-800/70 text-sm font-light leading-relaxed">Desobstrução do fluxo linfático com manobras precisas, focando no alívio profundo e melhora do contorno corporal.</p>
+                            </div>
+                        </div>
+                        <div class="p-8 bg-sand-50 rounded-[2rem] border border-olive-900/5 flex gap-6 group hover:bg-white hover:shadow-glass transition-all duration-300 reveal-on-scroll delay-200">
+                            <div class="w-14 h-14 bg-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-cormorant text-terracotta-500 shadow-sm border border-olive-900/5">3</div>
+                            <div>
+                                <h3 class="text-2xl text-olive-900 font-cormorant font-semibold mb-2">Ativos Ortomoleculares</h3>
+                                <p class="text-olive-800/70 text-sm font-light leading-relaxed">Aplicação de dermocosméticos clínicos avançados, ricos em minerais, para potencializar a saída de toxinas pela pele.</p>
+                            </div>
+                        </div>
+                        <div class="p-8 bg-sand-50 rounded-[2rem] border border-olive-900/5 flex gap-6 group hover:bg-white hover:shadow-glass transition-all duration-300 reveal-on-scroll delay-300">
+                            <div class="w-14 h-14 bg-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-cormorant text-terracotta-500 shadow-sm border border-olive-900/5">4</div>
+                            <div>
+                                <h3 class="text-2xl text-olive-900 font-cormorant font-semibold mb-2">Descompressão Muscular</h3>
+                                <p class="text-olive-800/70 text-sm font-light leading-relaxed">Manobras pontuais de relaxamento para devolver leveza, mobilidade e retirar tensões acumuladas da rotina.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Authority & Rules Split -->
+        <section class="w-full py-24 md:py-32 relative">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Authority -->
+                    <div class="bg-olive-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl reveal-on-scroll flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-olive-950/90 to-olive-900/80"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-8">
+                                <span class="text-xs font-medium uppercase tracking-widest text-terracotta-400">Autoridade Clínica</span>
+                            </div>
+                            <h3 class="text-4xl text-white font-cormorant font-medium tracking-tight mb-8">Segurança, rigor técnico e <span class="italic text-terracotta-300">saúde integrativa.</span></h3>
+                            
+                            <blockquote class="border-l-[3px] border-terracotta-400 pl-6 mb-10 text-sand-100 italic font-light text-lg leading-relaxed">
+                                "Sou a Esmeralda Sales, enfermeira e terapeuta ortomolecular. Na Esteticmel, cada procedimento é feito com um olhar individualizado. Meu compromisso não é apenas com a estética externa, mas com o equilíbrio do seu terreno biológico para que o alívio seja real e sustentável."
+                            </blockquote>
+                        </div>
+                        
+                        <div class="relative z-10 flex items-center gap-5 border-t border-white/10 pt-8">
+                            <div class="w-16 h-16 rounded-full bg-sand-100 border-2 border-terracotta-400 flex items-center justify-center overflow-hidden shadow-lg p-0.5">
+                                <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Esmeralda Sales" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <div>
+                                <p class="text-white font-cormorant text-xl font-semibold">Esmeralda Sales</p>
+                                <p class="text-sm text-terracotta-300 font-light tracking-wide">Enfermagem Estética & Saúde Integrativa</p>
+                            </div>
+                        </div>
+                        <div class="relative z-10 flex flex-wrap gap-2 mt-6">
+                            <span class="text-[10px] font-medium text-terracotta-300 bg-white/5 border border-white/10 rounded-full px-3 py-1 uppercase tracking-wider">Enfermeira Esteta</span>
+                            <span class="text-[10px] font-medium text-terracotta-300 bg-white/5 border border-white/10 rounded-full px-3 py-1 uppercase tracking-wider">Ozonioterapeuta</span>
+                            <span class="text-[10px] font-medium text-terracotta-300 bg-white/5 border border-white/10 rounded-full px-3 py-1 uppercase tracking-wider">Saúde Integrativa</span>
+                            <span class="text-[10px] font-medium text-terracotta-300 bg-white/5 border border-white/10 rounded-full px-3 py-1 uppercase tracking-wider">Esp. em Pós-operatório</span>
+                            <span class="text-[10px] font-medium text-terracotta-300 bg-white/5 border border-white/10 rounded-full px-3 py-1 uppercase tracking-wider">Estética Ortomolecular</span>
+                        </div>
+                    </div>
+
+                    <!-- Rules -->
+                    <div class="bg-white rounded-[2.5rem] border border-olive-900/5 p-8 md:p-12 flex flex-col reveal-on-scroll delay-100 shadow-glass">
+                        <div class="flex items-center gap-3 mb-10">
+                            <span class="text-xs font-medium uppercase tracking-widest text-terracotta-600">Como Funciona</span>
+                        </div>
+                        
+                        <div class="flex flex-col gap-10 h-full justify-center pl-2">
+                            <div class="flex items-start gap-5 relative">
+                                <div class="absolute left-6 top-10 bottom-[-40px] w-px bg-olive-200"></div>
+                                <div class="w-12 h-12 bg-sand-100 rounded-full flex items-center justify-center text-terracotta-500 flex-shrink-0 mt-1 font-cormorant text-2xl font-bold relative z-10 shadow-sm border border-white">
+                                    1
+                                </div>
+                                <div>
+                                    <h4 class="text-olive-900 font-cormorant text-2xl font-semibold mb-2">Garantir Vaga</h4>
+                                    <p class="text-sm text-olive-800/70 font-light leading-relaxed">Clique no botão para reservar o valor promocional de R$ 120 pelo WhatsApp. Exclusivo de 15/09 até as 23h59 do dia 25/09.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5 relative">
+                                <div class="absolute left-6 top-10 bottom-[-40px] w-px bg-olive-200"></div>
+                                <div class="w-12 h-12 bg-sand-100 rounded-full flex items-center justify-center text-terracotta-500 flex-shrink-0 mt-1 font-cormorant text-2xl font-bold relative z-10 shadow-sm border border-white">
+                                    2
+                                </div>
+                                <div>
+                                    <h4 class="text-olive-900 font-cormorant text-2xl font-semibold mb-2">Agendamento</h4>
+                                    <p class="text-sm text-olive-800/70 font-light leading-relaxed">Agende a data da sua sessão diretamente com a nossa recepção, com total flexibilidade em nossa agenda para os dias e semanas seguintes.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5 relative">
+                                <div class="w-12 h-12 bg-terracotta-50 border border-terracotta-200 rounded-full flex items-center justify-center text-terracotta-600 flex-shrink-0 mt-1 font-cormorant text-2xl font-bold relative z-10 shadow-sm border border-white">
+                                    3
+                                </div>
+                                <div>
+                                    <h4 class="text-terracotta-600 font-cormorant text-2xl font-semibold mb-2">Atendimento</h4>
+                                    <p class="text-sm text-terracotta-600/80 font-light leading-relaxed">Venha relaxar e desinchar com o nosso protocolo exclusivo. (Válido apenas para os primeiros 20 pacientes).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ -->
+        <section class="w-full py-24 relative bg-sand-50 border-t border-olive-900/5">
+            <div class="max-w-[800px] mx-auto px-6 relative z-10 reveal-on-scroll">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl text-olive-900 tracking-tight font-cormorant font-medium mb-4">
+                        Perguntas Frequentes
+                    </h2>
+                    <p class="text-olive-800/70 font-light">Tire suas dúvidas antes de garantir a vaga.</p>
+                </div>
+                
+                <div class="flex flex-col gap-4">
+                    <details class="group bg-white border border-olive-900/5 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-glass transition-shadow">
+                        <summary class="p-6 text-olive-900 font-medium flex justify-between items-center outline-none font-cormorant text-xl">
+                            Preciso realizar a sessão obrigatoriamente entre os dias 15 e 25?
+                            <iconify-icon icon="lucide:chevron-down" class="text-terracotta-500 group-open:rotate-180 transition-transform"></iconify-icon>
+                        </summary>
+                        <div class="px-6 pb-6 text-olive-800/70 text-sm leading-relaxed font-light border-t border-olive-900/5 pt-4 mt-2">
+                            Não! Você só precisa adquirir a oferta pelo WhatsApp dentro do período promocional (15 a 25 de setembro). O atendimento pode ser agendado para os dias e meses seguintes, conforme sua disponibilidade.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white border border-olive-900/5 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-glass transition-shadow">
+                        <summary class="p-6 text-olive-900 font-medium flex justify-between items-center outline-none font-cormorant text-xl">
+                            Homens também podem fazer o Detox?
+                            <iconify-icon icon="lucide:chevron-down" class="text-terracotta-500 group-open:rotate-180 transition-transform"></iconify-icon>
+                        </summary>
+                        <div class="px-6 pb-6 text-olive-800/70 text-sm leading-relaxed font-light border-t border-olive-900/5 pt-4 mt-2">
+                            Com certeza! O procedimento é muito procurado por homens, principalmente praticantes de musculação e esportes intensos para eliminar retenção hídrica, definição muscular aparente e aliviar a fadiga.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white border border-olive-900/5 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-glass transition-shadow">
+                        <summary class="p-6 text-olive-900 font-medium flex justify-between items-center outline-none font-cormorant text-xl">
+                            Onde fica a clínica de atendimento?
+                            <iconify-icon icon="lucide:chevron-down" class="text-terracotta-500 group-open:rotate-180 transition-transform"></iconify-icon>
+                        </summary>
+                        <div class="px-6 pb-6 text-olive-800/70 text-sm leading-relaxed font-light border-t border-olive-900/5 pt-4 mt-2">
+                            Nossos atendimentos ocorrem em <strong>Salvador - BA</strong>. Estamos localizados na Rua Conde de Porto Alegre, 54 - IAPI. Dispomos de um espaço totalmente preparado, com atendimento individualizado e um ambiente privativo, climatizado e focado no seu relaxamento máximo.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Footer CTA -->
+        <footer class="w-full pt-32 pb-16 relative bg-white border-t border-olive-900/5 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-terracotta-50/50 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-[1000px] mx-auto px-6 text-center relative z-10 reveal-on-scroll">
+                <h2 class="text-5xl md:text-6xl lg:text-7xl text-olive-900 tracking-tight font-cormorant font-medium mb-8 leading-[1.1]">
+                    Não deixe para cuidar de você<br>
+                    <span class="italic text-terracotta-500">quando o corpo travar.</span>
+                </h2>
+                
+                <div class="flex items-center justify-center gap-6 mb-12">
+                    <span class="text-2xl text-olive-400 line-through font-cormorant font-medium">De R$ 220</span>
+                    <span class="text-5xl md:text-6xl text-terracotta-600 font-cormorant font-bold tracking-tight">Por R$ 120</span>
+                </div>
+                
+                <a href="https://wa.me/5571997110471?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20Semana%20do%20Cliente%20(15%20a%2025/09)%20e%20garantir%20minha%20sess%C3%A3o%20de%20Detox%20Corporal%20por%20R$%20120." target="_blank" class="inline-flex group hover:bg-olive-950 transition-all duration-300 text-white bg-olive-900 rounded-full py-5 px-10 shadow-[0_10px_40px_rgba(47,62,30,0.2)] hover:shadow-[0_15px_50px_rgba(195,124,99,0.3)] items-center gap-3 mb-20 transform hover:-translate-y-1">
+                    <span class="text-sm md:text-base tracking-widest uppercase font-medium">Quero Meu Detox Por R$ 120</span>
+                    <iconify-icon icon="lucide:arrow-right" class="w-5 h-5"></iconify-icon>
+                </a>
+                
+                <div class="border-t border-olive-900/10 pt-10 text-olive-800/60 text-xs font-sans tracking-wide uppercase flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+                    <div class="text-center md:text-left">
+                        <p class="font-semibold text-olive-900 mb-1">Unidade IAPI</p>
+                        <p>R. Conde de Porto Alegre, 54, IAPI<br>Salvador - BA</p>
+                    </div>
+                    <div class="hidden md:block w-px h-10 bg-olive-900/10"></div>
+                    <div class="text-center md:text-left">
+                        <p class="font-semibold text-olive-900 mb-1">Unidade San Martin</p>
+                        <p>Av. San Martin, 142<br>Salvador - BA</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-olive-800/40 text-[10px] uppercase tracking-widest">
+                    Esteticmel • Enfermagem Estética & Saúde Integrativa
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scripts for Scroll animations and Timer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Countdown Logic
+            const targetDate = new Date('2026-09-25T23:59:59').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    setCountdownValues({ days: '00', hours: '00', mins: '00', secs: '00' });
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                setCountdownValues({
+                    days: days.toString().padStart(2, '0'),
+                    hours: hours.toString().padStart(2, '0'),
+                    mins: minutes.toString().padStart(2, '0'),
+                    secs: seconds.toString().padStart(2, '0')
+                });
+            }
+
+            function setCountdownValues(time) {
+                // Top Banner
+                if(document.getElementById('top-days')) document.getElementById('top-days').innerText = time.days;
+                if(document.getElementById('top-hours')) document.getElementById('top-hours').innerText = time.hours;
+                if(document.getElementById('top-mins')) document.getElementById('top-mins').innerText = time.mins;
+                if(document.getElementById('top-secs')) document.getElementById('top-secs').innerText = time.secs;
+
+                // Main Hero
+                if(document.getElementById('main-days')) document.getElementById('main-days').innerText = time.days;
+                if(document.getElementById('main-hours')) document.getElementById('main-hours').innerText = time.hours;
+                if(document.getElementById('main-mins')) document.getElementById('main-mins').innerText = time.mins;
+                if(document.getElementById('main-secs')) document.getElementById('main-secs').innerText = time.secs;
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            // Header Scroll Effect
+            const headerElement = document.getElementById('main-header');
+            const handleScroll = () => {
+                if (window.scrollY > 20) {
+                    headerElement.classList.add('shadow-sm', 'bg-sand-50/95');
+                    headerElement.classList.remove('bg-sand-50/80');
+                } else {
+                    headerElement.classList.remove('shadow-sm', 'bg-sand-50/95');
+                    headerElement.classList.add('bg-sand-50/80');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        });
+    </script>
+</body>
+</html>

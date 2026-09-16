@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System | Esteticmel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Design System Showcase Styles (Isolated from original CSS) */
+        body { padding-top: 60px; /* Offset for sticky nav */ }
+        .ds-nav { position: fixed; top: 0; left: 0; right: 0; background: var(--surface); padding: 15px; box-shadow: var(--shadow-soft); z-index: 9999; display: flex; gap: 20px; justify-content: center; border-bottom: 2px solid var(--accent); }
+        .ds-nav a { color: var(--primary); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.9rem; transition: color 0.2s; }
+        .ds-nav a:hover { color: var(--secondary); }
+        .ds-section { padding: 80px 0; border-bottom: 1px dashed rgba(0,0,0,0.1); background-color: var(--background); }
+        .ds-section.alt-bg { background-color: var(--surface); }
+        .ds-header { margin-bottom: 40px; text-align: left; }
+        .ds-header h2 { font-family: var(--font-body); font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+        .ds-header p { color: var(--text-muted); font-family: var(--font-body); }
+        .ds-preview { padding: 40px; background: var(--background); border-radius: var(--radius); border: 1px dashed rgba(0,0,0,0.2); margin-bottom: 20px; position: relative; overflow: hidden; }
+        .ds-preview.surface { background: var(--surface); }
+        .ds-preview.primary { background: var(--primary); }
+        
+        /* Typography */
+        .typo-row { display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); flex-wrap: wrap; gap: 20px; }
+        .typo-preview { flex: 1; min-width: 300px; margin: 0 !important; padding: 0 !important; }
+        .typo-label { font-family: monospace; color: var(--text-muted); font-size: 0.9rem; text-align: right; background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 4px; }
+        
+        /* Colors */
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .color-card { background: var(--surface); padding: 10px; border-radius: var(--radius); box-shadow: var(--shadow-soft); text-align: center; }
+        .color-swatch { height: 100px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.05); }
+        .color-details { font-family: monospace; font-size: 0.8rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; }
+        .color-details strong { color: var(--text-main); font-size: 0.9rem; font-family: var(--font-body); }
+        
+        /* Components */
+        .component-grid { display: flex; flex-direction: column; gap: 40px; }
+        .component-states { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+        
+        /* Fix for sticky banner in DS so it doesn't overlap the whole page */
+        #hero .sticky-banner { position: absolute; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="ds-nav">
+        <a href="#hero">0. Hero Clone</a>
+        <a href="#typography">1. Typography</a>
+        <a href="#colors">2. Colors & Surfaces</a>
+        <a href="#components">3. Components</a>
+        <a href="#layout">4. Layout & Spacing</a>
+        <a href="#motion">5. Motion</a>
+    </nav>
+
+    <!-- 0. Hero (Exact Clone) -->
+    <section id="hero" style="position: relative; overflow: hidden;">
+        <!-- Reusing original sticky banner structure but positioned absolute for the showcase -->
+        <div class="sticky-banner" id="stickyBanner" style="position: absolute;">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <span class="urgency-icon">⏳</span> 
+                    <strong>DESIGN SYSTEM v2.0</strong> • Padrões Visuais • Guia de Estilos Esteticmel
+                </div>
+                <div class="countdown" id="topCountdown">
+                    <div class="time-block"><span id="ds-top-days">00</span><small>DIAS</small></div> :
+                    <div class="time-block"><span id="ds-top-hours">00</span><small>HORAS</small></div> :
+                    <div class="time-block"><span id="ds-top-mins">00</span><small>MIN</small></div> :
+                    <div class="time-block"><span id="ds-top-secs">00</span><small>SEG</small></div>
+                </div>
+                <a href="#" class="btn-banner">Ver Código</a>
+            </div>
+        </div>
+
+        <header class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <span class="badge">🌿 Sistema de Design Consolidado • Documentação Oficial</span>
+                
+                <h1>Escalável, consistente e com foco em conversão.</h1>
+                <h2 class="sub-headline">O Design System da Esteticmel construído para a Semana do Cliente.</h2>
+                <p class="hero-description">Padrões de UI, tipografia refinada e componentes modulares para acelerar a criação de novas páginas com o mesmo rigor estético.</p>
+
+                <div class="pricing-card glass-panel">
+                    <div class="prices">
+                        <span class="old-price">Design Inconsistente</span>
+                        <span class="new-price">Padrões Sólidos</span>
+                        <span class="savings">(Ganho imediato de Produtividade)</span>
+                    </div>
+                    <p class="availability">Componente principal de escassez e precificação flutuante.</p>
+                    
+                    <div class="mini-countdown">
+                        <p>Contador regressivo central:</p>
+                        <div class="countdown-display" id="mainCountdown">
+                            [ <span id="ds-main-days">DD</span> ] : [ <span id="ds-main-hours">HH</span> ] : [ <span id="ds-main-mins">MM</span> ] : [ <span id="ds-main-secs">SS</span> ]
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-primary">
+                        👉 ACESSAR BIBLIOTECA DE COMPONENTES
+                    </a>
+                    <p class="subtext">Estrutura baseada em Glassmorphism e tipografia premium.</p>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <!-- 1. Typography -->
+    <section id="typography" class="ds-section alt-bg">
+        <div class="container">
+            <div class="ds-header">
+                <h2>1. Typography</h2>
+                <p>Spec table showcasing the typographic hierarchy. Headings use Cormorant Garamond, body uses Inter.</p>
+            </div>
+            
+            <div class="ds-preview surface">
+                <!-- Heading 1 (Hero Title) -->
+                <div class="typo-row">
+                    <h1 class="typo-preview" style="font-size: 4rem; line-height: 1.2;">Heading 1 (Hero)</h1>
+                    <div class="typo-label">64px / 1.2 / Cormorant Garamond Bold</div>
+                </div>
+                <!-- Heading 2 (Footer Title) -->
+                <div class="typo-row">
+                    <h2 class="footer-headline typo-preview" style="color: var(--primary);">Heading 2 (Footer)</h2>
+                    <div class="typo-label">48px / 1.2 / Cormorant Garamond Bold</div>
+                </div>
+                <!-- Section Title -->
+                <div class="typo-row">
+                    <h2 class="section-title typo-preview" style="text-align: left;">Section Title</h2>
+                    <div class="typo-label">40px / 1.2 / Cormorant Garamond Bold</div>
+                </div>
+                <!-- Sub Headline -->
+                <div class="typo-row">
+                    <h2 class="sub-headline typo-preview">Sub Headline</h2>
+                    <div class="typo-label">32px / 1.2 / Cormorant Garamond Bold</div>
+                </div>
+                <!-- Card Title / Step Title -->
+                <div class="typo-row">
+                    <h3 class="typo-preview" style="font-family: var(--font-body); font-size: 1.3rem;">Card Title (Inter)</h3>
+                    <div class="typo-label">20.8px / 1.6 / Inter Bold</div>
+                </div>
+                <!-- Section Subtitle -->
+                <div class="typo-row">
+                    <p class="section-subtitle typo-preview" style="text-align: left; margin-bottom: 0;">SECTION SUBTITLE</p>
+                    <div class="typo-label">14.4px / 1.6 / Inter Medium Uppercase</div>
+                </div>
+                <!-- Paragraph (Hero) -->
+                <div class="typo-row">
+                    <p class="hero-description typo-preview" style="margin-bottom: 0;">Paragraph (Hero). Drenagem metabólica integrativa e ativos ortomoleculares.</p>
+                    <div class="typo-label">17.6px / 1.6 / Inter Regular</div>
+                </div>
+                <!-- Paragraph (Standard) -->
+                <div class="typo-row">
+                    <p class="typo-preview">Paragraph (Standard). Roupas apertando e abdômen estufado logo ao acordar ou ao fim do dia.</p>
+                    <div class="typo-label">16px / 1.6 / Inter Regular</div>
+                </div>
+                <!-- Text Muted -->
+                <div class="typo-row">
+                    <p class="typo-preview" style="color: var(--text-muted); font-size: 0.95rem;">Paragraph (Muted Card Text).</p>
+                    <div class="typo-label">15.2px / 1.6 / Inter Regular</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Colors & Surfaces -->
+    <section id="colors" class="ds-section">
+        <div class="container">
+            <div class="ds-header">
+                <h2>2. Colors & Surfaces</h2>
+                <p>Color palette, backgrounds, and special surfaces like glassmorphism.</p>
+            </div>
+            
+            <h3 style="margin-bottom: 20px; font-family: var(--font-body);">Brand Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--primary);"></div>
+                    <div class="color-details">
+                        <strong>Primary</strong>
+                        <span>var(--primary)</span>
+                        <span>#2F3E1E</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--primary-light);"></div>
+                    <div class="color-details">
+                        <strong>Primary Light</strong>
+                        <span>var(--primary-light)</span>
+                        <span>#4A5D23</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--secondary);"></div>
+                    <div class="color-details">
+                        <strong>Secondary (Terracotta)</strong>
+                        <span>var(--secondary)</span>
+                        <span>#C37C63</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--accent);"></div>
+                    <div class="color-details">
+                        <strong>Accent (Gold)</strong>
+                        <span>var(--accent)</span>
+                        <span>#C5A059</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin: 40px 0 20px; font-family: var(--font-body);">Backgrounds & Text</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--background);"></div>
+                    <div class="color-details">
+                        <strong>Background</strong>
+                        <span>var(--background)</span>
+                        <span>#F9F6F0</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--surface);"></div>
+                    <div class="color-details">
+                        <strong>Surface</strong>
+                        <span>var(--surface)</span>
+                        <span>#FFFFFF</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--text-main);"></div>
+                    <div class="color-details">
+                        <strong>Text Main</strong>
+                        <span>var(--text-main)</span>
+                        <span>#2C302E</span>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--text-muted);"></div>
+                    <div class="color-details">
+                        <strong>Text Muted</strong>
+                        <span>var(--text-muted)</span>
+                        <span>#5e6662</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; font-family: var(--font-body);">Surfaces</h3>
+            <div class="ds-preview" style="background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;">
+                <div class="hero-overlay" style="position: absolute; inset: 0; z-index: 1;"></div>
+                <div style="position: relative; z-index: 2;">
+                    <div class="glass-panel" style="padding: 40px; text-align: center;">
+                        <h3 style="margin-bottom: 10px;">Glass Panel Surface</h3>
+                        <p class="text-muted"><code>.glass-panel</code> over <code>.hero-overlay</code> gradient background.</p>
+                        <p style="font-family: monospace; font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">rgba(255,255,255,0.85) + blur(12px) + shadow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Components -->
+    <section id="components" class="ds-section alt-bg">
+        <div class="container">
+            <div class="ds-header">
+                <h2>3. UI Components</h2>
+                <p>Buttons, badges, countdowns, and FAQ accordions.</p>
+            </div>
+
+            <div class="component-grid">
+                
+                <!-- Buttons -->
+                <div>
+                    <h3 style="font-family: var(--font-body); margin-bottom: 20px;">Primary Button (.btn-primary)</h3>
+                    <div class="ds-preview surface component-states">
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem;">Default</p>
+                            <a href="#" class="btn-primary">👉 GARANTIR MEU DETOX</a>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem;">Hover State (Simulated via CSS)</p>
+                            <a href="#" class="btn-primary" style="background-color: var(--secondary-hover); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(195, 124, 99, 0.5);">👉 GARANTIR MEU DETOX</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Button -->
+                <div>
+                    <h3 style="font-family: var(--font-body); margin-bottom: 20px;">Banner Button (.btn-banner)</h3>
+                    <div class="ds-preview primary component-states" style="color: white;">
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem; opacity: 0.8;">Default</p>
+                            <a href="#" class="btn-banner">Garantir Vaga</a>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem; opacity: 0.8;">Hover State</p>
+                            <a href="#" class="btn-banner" style="background: var(--accent); color: white;">Garantir Vaga</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badge & Savings -->
+                <div>
+                    <h3 style="font-family: var(--font-body); margin-bottom: 20px;">Badges & Tags</h3>
+                    <div class="ds-preview surface component-states">
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem;">Hero Badge (.badge)</p>
+                            <span class="badge" style="margin: 0;">🌿 Oferta Válida de 15 a 25 de Setembro</span>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem;">Savings Tag (.savings)</p>
+                            <span class="savings" style="margin: 0;">(Economia imediata de R$ 100)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Countdown UI -->
+                <div>
+                    <h3 style="font-family: var(--font-body); margin-bottom: 20px;">Countdown Displays</h3>
+                    <div class="ds-preview primary component-states" style="color: white; gap: 40px;">
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem; opacity: 0.8;">Banner Format (.countdown)</p>
+                            <div class="countdown">
+                                <div class="time-block"><span>09</span><small>DIAS</small></div> :
+                                <div class="time-block"><span>14</span><small>HORAS</small></div> :
+                                <div class="time-block"><span>35</span><small>MIN</small></div> :
+                                <div class="time-block"><span>42</span><small>SEG</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ds-preview surface component-states" style="margin-top: -20px; border-top: none; border-top-left-radius: 0; border-top-right-radius: 0;">
+                        <div>
+                            <p style="margin-bottom: 10px; font-family: monospace; font-size: 0.8rem;">Card Format (.countdown-display)</p>
+                            <div class="countdown-display">
+                                [ <span>09</span> ] : [ <span>14</span> ] : [ <span>35</span> ] : [ <span>42</span> ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div>
+                    <h3 style="font-family: var(--font-body); margin-bottom: 20px;">FAQ Item (.faq-item details/summary)</h3>
+                    <div class="ds-preview" style="background: var(--background);">
+                        <details class="faq-item" open>
+                            <summary>Preciso realizar a sessão obrigatoriamente entre os dias 15 e 25?</summary>
+                            <p>Não! Você só precisa adquirir a oferta pelo WhatsApp dentro do período (15 a 25 de setembro). O atendimento pode ser agendado para os dias seguintes conforme sua disponibilidade.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Homens podem fazer?</summary>
+                            <p>Com certeza! É muito procurado por praticantes de musculação e esportes para eliminar retenção hídrica e aliviar fadiga muscular.</p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Layout & Spacing -->
+    <section id="layout" class="ds-section">
+        <div class="container">
+            <div class="ds-header">
+                <h2>4. Layout & Spacing</h2>
+                <p>Grid systems and flexbox patterns used across the site.</p>
+            </div>
+
+            <!-- Pattern 1: Grid 4 -->
+            <h3 style="font-family: var(--font-body); margin-bottom: 20px;">4-Column Grid (.grid-4)</h3>
+            <p style="font-family: monospace; font-size: 0.9rem; margin-bottom: 20px; color: var(--text-muted);">grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;</p>
+            <div class="ds-preview surface">
+                <div class="grid-4" style="margin-top: 0;">
+                    <div class="pain-card" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);">
+                        <div class="icon">❌</div>
+                        <h3>Inchaço pesado</h3>
+                        <p>Preview Card 1</p>
+                    </div>
+                    <div class="pain-card" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);">
+                        <div class="icon">❌</div>
+                        <h3>Pernas cansadas</h3>
+                        <p>Preview Card 2</p>
+                    </div>
+                    <div class="pain-card" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);">
+                        <div class="icon">❌</div>
+                        <h3>Metabolismo travado</h3>
+                        <p>Preview Card 3</p>
+                    </div>
+                    <div class="pain-card" style="box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);">
+                        <div class="icon">❌</div>
+                        <h3>Estresse tecidual</h3>
+                        <p>Preview Card 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern 2: Split Layout -->
+            <h3 style="font-family: var(--font-body); margin: 40px 0 20px;">Split Layout (.authority-flex)</h3>
+            <p style="font-family: monospace; font-size: 0.9rem; margin-bottom: 20px; color: var(--text-muted);">display: flex; gap: 60px; (stacks on mobile)</p>
+            <div class="ds-preview surface">
+                <div class="authority-flex" style="border: 1px dashed var(--accent); padding: 20px; border-radius: var(--radius);">
+                    <div class="authority-image" style="background: rgba(0,0,0,0.05); min-height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                        <code>flex: 1 (Image Area)</code>
+                    </div>
+                    <div class="authority-text" style="background: rgba(0,0,0,0.05); min-height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; text-align: center;">
+                        <code>flex: 1 (Text Content Area)</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern 3: Vertical Protocol Steps -->
+            <h3 style="font-family: var(--font-body); margin: 40px 0 20px;">Vertical Stack (.protocol-steps)</h3>
+            <div class="ds-preview primary">
+                <div class="protocol-steps" style="max-width: 100%;">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content" style="color: white;">
+                            <h3>Avaliação Clínica</h3>
+                            <p>Análise rápida de áreas críticas de retenção.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content" style="color: white;">
+                            <h3>Drenagem Metabólica</h3>
+                            <p>Desobstrução do fluxo linfático com foco em alívio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Motion & Interaction -->
+    <section id="motion" class="ds-section alt-bg">
+        <div class="container">
+            <div class="ds-header">
+                <h2>5. Motion & Interaction</h2>
+                <p>Hover states, transitions, and keyframe animations.</p>
+            </div>
+
+            <div class="grid-4" style="margin-top: 0;">
+                <!-- Float Animation -->
+                <div class="ds-preview surface" style="margin-bottom: 0;">
+                    <h4 style="margin-bottom: 15px; font-family: var(--font-body);">Float Animation</h4>
+                    <p style="font-family: monospace; font-size: 0.8rem; margin-bottom: 30px; color: var(--text-muted);">@keyframes float { 6s ease-in-out infinite }</p>
+                    
+                    <div class="pricing-card glass-panel" style="background: var(--surface); padding: 20px; max-width: 250px; margin: 0 auto; box-shadow: var(--shadow-strong);">
+                        <p style="text-align: center; font-weight: bold;">.pricing-card</p>
+                    </div>
+                </div>
+
+                <!-- Card Hover Lift -->
+                <div class="ds-preview" style="background: var(--background); margin-bottom: 0;">
+                    <h4 style="margin-bottom: 15px; font-family: var(--font-body);">Card Hover Lift</h4>
+                    <p style="font-family: monospace; font-size: 0.8rem; margin-bottom: 30px; color: var(--text-muted);">transform: translateY(-5px) & shadow</p>
+                    
+                    <div class="pain-card" style="margin: 0 auto; max-width: 250px;">
+                        <p style="text-align: center; font-weight: bold;">Hover me (.pain-card)</p>
+                    </div>
+                </div>
+
+                <!-- Button Hover Lift -->
+                <div class="ds-preview surface" style="margin-bottom: 0;">
+                    <h4 style="margin-bottom: 15px; font-family: var(--font-body);">Button Lift & Glow</h4>
+                    <p style="font-family: monospace; font-size: 0.8rem; margin-bottom: 30px; color: var(--text-muted);">transform: translateY(-3px) & colored shadow</p>
+                    
+                    <div style="text-align: center;">
+                        <a href="#" class="btn-primary" style="padding: 12px 24px; font-size: 1rem;">Hover me</a>
+                    </div>
+                </div>
+
+                <!-- Step Row Hover -->
+                <div class="ds-preview primary" style="margin-bottom: 0;">
+                    <h4 style="margin-bottom: 15px; font-family: var(--font-body); color: white;">Step Hover Highlight</h4>
+                    <p style="font-family: monospace; font-size: 0.8rem; margin-bottom: 30px; color: rgba(255,255,255,0.7);">background transition</p>
+                    
+                    <div class="step" style="padding: 15px; cursor: pointer;">
+                        <div class="step-number" style="width: 40px; height: 40px; font-size: 1.2rem;">*</div>
+                        <div class="step-content" style="color: white;">
+                            <h3 style="margin-bottom: 0; font-size: 1rem;">Hover me (.step)</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Icons section omitted as requested, since there are no icon libraries used (only standard emojis) -->
+
+    <!-- Basic script for the hero clone countdown -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const targetDate = new Date('2026-09-25T23:59:59').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) return;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const time = {
+                    days: days.toString().padStart(2, '0'),
+                    hours: hours.toString().padStart(2, '0'),
+                    mins: minutes.toString().padStart(2, '0'),
+                    secs: seconds.toString().padStart(2, '0')
+                };
+
+                // DS Hero
+                document.getElementById('ds-top-days').innerText = time.days;
+                document.getElementById('ds-top-hours').innerText = time.hours;
+                document.getElementById('ds-top-mins').innerText = time.mins;
+                document.getElementById('ds-top-secs').innerText = time.secs;
+
+                document.getElementById('ds-main-days').innerText = time.days;
+                document.getElementById('ds-main-hours').innerText = time.hours;
+                document.getElementById('ds-main-mins').innerText = time.mins;
+                document.getElementById('ds-main-secs').innerText = time.secs;
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
