@@ -51,6 +51,13 @@
             display: flex;
             white-space: nowrap;
         }
+        @media (max-width: 768px) {
+            .top-bar-container {
+                font-size: 11px;
+                padding: 8px 0;
+                letter-spacing: 0.05em;
+            }
+        }
 
         .marquee-track {
             display: flex;
@@ -58,6 +65,9 @@
         }
 
         .marquee-track span { padding: 0 40px; }
+        @media (max-width: 768px) {
+            .marquee-track span { padding: 0 20px; }
+        }
         @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
 
         /* Hero */
