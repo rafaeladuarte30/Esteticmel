@@ -746,6 +746,7 @@
             .footer-logos { flex-direction: column; gap: 15px; }
             .footer-btn { width: 100%; padding: 18px 20px; font-size: 14px; }
         }
+    </style>
 
     <!-- Microsoft Clarity (Mapas de Calor e Gravação de Tela) -->
     <script type="text/javascript">
@@ -768,7 +769,7 @@
     <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<meta id="dcngeagmmhegagicpcmpinaoklddcgon"><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"></head>
+</head>
 <body style="">
 
     <!-- Faixa Topo -->
@@ -1437,32 +1438,40 @@
             }
         });
 
-        // Função para simular o envio ou conectar com webhook real (SheetMonkey / Zapier)
+        // Função para envio com SheetMonkey e redirecionamento garantido
         function handleFormSubmit(e) {
             e.preventDefault();
 
-            // Extrai os dados do formulário atual que foi submetido
             const form = e.target;
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
             dataObj.data_cadastro = new Date().toISOString();
 
             const btn = form.querySelector('.btn-submit');
-            if (btn) btn.innerHTML = 'Processando...';
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = 'Liberando acesso...';
+            }
 
-            // Integração oficial com SheetMonkey
-            const webhookUrl = 'https://api.sheetmonkey.io/form/qGaWwLaRCBV5nnZzuabrkR'; 
+            const targetUrl = 'https://chat.whatsapp.com/CH9urJTlN7k8voCMdfLQZn';
+            let redirected = false;
+            const doRedirect = () => {
+                if (!redirected) {
+                    redirected = true;
+                    window.location.href = targetUrl;
+                }
+            };
 
-            // Enviando os dados de forma silenciosa e redirecionando
+            // Timeout de segurança: se a rede ou adblocker segurar a resposta, redireciona em no máximo 1.2s
+            setTimeout(doRedirect, 1200);
+
+            // Integração com SheetMonkey
+            const webhookUrl = 'https://api.sheetmonkey.io/form/qGaWwLaRCBV5nnZzuabrkR';
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dataObj)
-            }).then(() => {
-                window.location.href = 'https://chat.whatsapp.com/CH9urJTlN7k8voCMdfLQZn';
-            }).catch(() => {
-                window.location.href = 'https://chat.whatsapp.com/CH9urJTlN7k8voCMdfLQZn';
-            });
+            }).then(doRedirect).catch(doRedirect);
         }
     
         // FAQ Toggle
