@@ -603,7 +603,7 @@
             box-shadow: 0 0 0 4px rgba(96, 63, 235, 0.15);
         }
 
-        /* Upload de Comprovante / Foto */
+        /* Upload de Comprovante de Pagamento */
         .upload-receipt-area {
             background: #FFFFFF;
             border: 2px dashed #C3B4FF;
@@ -1000,21 +1000,21 @@
                         <input type="hidden" name="Status" value="Protocolo Ativado">
                     </div>
 
-                    <!-- Passo 4: Anexar Comprovante ou Foto (Opcional) -->
+                    <!-- Passo 4: Anexar Comprovante de Pagamento -->
                     <div class="form-section">
                         <div class="form-section-title">
                             <span class="form-step-number">4</span>
-                            <span>Anexar Comprovante ou Foto Corporal (Opcional)</span>
+                            <span>Anexar Comprovante de Pagamento (Print ou PDF)</span>
                         </div>
                         <p class="form-section-hint">
-                            Suba o print do comprovante de pagamento ou uma foto corporal para a Dra. Esmeralda Sales já anexar ao seu prontuário clínico.
+                            Suba o print ou PDF do seu comprovante de pagamento para confirmarmos sua inscrição e agilizarmos a abertura do seu prontuário com a Dra. Esmeralda.
                         </p>
                         
                         <div class="upload-receipt-area" id="uploadArea">
                             <input type="file" id="comprovanteInput" name="comprovante" accept="image/*,.pdf" onchange="handleFileSelected(event)">
                             <iconify-icon icon="lucide:upload-cloud" class="upload-icon"></iconify-icon>
                             <div class="upload-text">
-                                <strong id="uploadTextPrimary">Clique ou arraste seu comprovante / foto aqui</strong>
+                                <strong id="uploadTextPrimary">Clique ou arraste seu comprovante de pagamento aqui</strong>
                                 <span>Formatos aceitos: JPG, PNG, WEBP ou PDF (máx. 10MB)</span>
                             </div>
                         </div>
@@ -1024,12 +1024,12 @@
                                 <iconify-icon icon="lucide:file-check" style="font-size: 20px; color: #10B981;"></iconify-icon>
                                 <span id="fileNameDisplay">comprovante.jpg</span>
                             </div>
-                            <div class="file-attached-remove" onclick="removeAttachedFile()" title="Remover anexo">
+                            <div class="file-attached-remove" onclick="removeAttachedFile()" title="Remover comprovante">
                                 <iconify-icon icon="lucide:trash-2"></iconify-icon>
                             </div>
                         </div>
 
-                        <input type="hidden" id="hiddenNomeArquivo" name="Nome_Arquivo" value="Nenhum anexo">
+                        <input type="hidden" id="hiddenNomeArquivo" name="Nome_Comprovante" value="Nenhum comprovante anexado">
                     </div>
 
                     <!-- Botão de Envio -->
@@ -1098,7 +1098,7 @@
             e.target.value = v;
         });
 
-        // Manipulação de Upload do Comprovante / Foto
+        // Manipulação de Upload do Comprovante de Pagamento
         let selectedFile = null;
         function handleFileSelected(event) {
             const input = event.target;
@@ -1152,7 +1152,7 @@
             }
 
             const anexoTexto = selectedFile 
-                ? `\n📎 Arquivo/Foto: ${selectedFile.name} (enviando pelo WhatsApp)` 
+                ? `\n📎 Comprovante Anexado: ${selectedFile.name} (enviando pelo WhatsApp)` 
                 : '';
 
             const mensagem = 
