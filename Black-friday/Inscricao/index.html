@@ -162,26 +162,27 @@
         }
 
         /* Badge VIP de Alto Contraste */
+        /* Badge VIP de Alto Contraste em Purple */
         .badge-vip {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #FFFFFF;
-            color: #9C2E03;
+            background: #C3B4FF;
+            color: #240E82;
             border: 2px solid rgba(255, 255, 255, 0.95);
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 999px;
             font-size: 11.5px;
             font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+            box-shadow: 0 8px 24px rgba(36, 14, 130, 0.22);
         }
         .badge-vip i {
             width: 8px; height: 8px;
             border-radius: 50%;
-            background: #10B981;
-            box-shadow: 0 0 10px #10B981;
+            background: #240E82;
+            box-shadow: 0 0 10px #240E82;
             animation: pulseDot 1.6s infinite;
         }
         @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
@@ -198,31 +199,27 @@
         }
 
         .form-page-title span {
-            color: #FFD572;
-            background: linear-gradient(90deg, #FFFFFF 0%, #FFE599 40%, #FFD572 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.22));
+            color: #C3B4FF;
+            text-shadow: 0 2px 16px rgba(36, 14, 130, 0.4);
         }
 
         .form-page-sub {
             font-size: clamp(15px, 1.35vw, 17.5px);
-            color: rgba(255, 255, 255, 0.94);
+            color: rgba(255, 255, 255, 0.95);
             max-width: 660px;
             margin: 0 auto;
             line-height: 1.65;
             text-shadow: 0 1px 4px rgba(0,0,0,0.12);
         }
 
-        /* CARD DE RESUMO VIP (ALTO CONTRASTE E SOFISTICAÇÃO) */
+        /* CARD DE RESUMO VIP (BANNER PURPLE DE ALTO CONTRASTE) */
         .vip-summary-card {
-            background: #FFFDF9;
+            background: linear-gradient(135deg, #C3B4FF 0%, #D8CDFF 100%);
             border: 2px solid rgba(255, 255, 255, 0.95);
             border-radius: 28px;
             padding: 26px 32px;
             margin-bottom: 34px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 20px 45px rgba(36, 14, 130, 0.25);
             display: grid;
             grid-template-columns: 1fr auto;
             align-items: center;
@@ -242,11 +239,12 @@
         .vip-summary-content h4 {
             font-family: var(--font-title);
             font-size: 21px;
-            color: #22140D;
+            color: #240E82;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 800;
         }
         @media (max-width: 768px) {
             .vip-summary-content h4 { justify-content: center; }
@@ -254,21 +252,21 @@
 
         .vip-summary-content p {
             font-size: 14px;
-            color: #5C4436;
+            color: #291278;
             line-height: 1.6;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .vip-summary-price {
             text-align: right;
-            border-left: 2px dashed #E8D5C4;
+            border-left: 2px dashed rgba(56, 26, 181, 0.35);
             padding-left: 26px;
             flex-shrink: 0;
         }
         @media (max-width: 768px) {
             .vip-summary-price {
                 border-left: none;
-                border-top: 1.5px dashed #E8D5C4;
+                border-top: 1.5px dashed rgba(56, 26, 181, 0.35);
                 padding-left: 0;
                 padding-top: 16px;
                 text-align: center;
@@ -278,7 +276,7 @@
         .vip-summary-price small {
             display: block;
             font-size: 11.5px;
-            color: #CE4009;
+            color: #4C2BC2;
             text-transform: uppercase;
             font-weight: 900;
             letter-spacing: 0.08em;
@@ -297,10 +295,10 @@
         .vip-summary-price span {
             display: inline-block;
             font-size: 11.5px;
-            color: #065F46;
+            color: #240E82;
             font-weight: 800;
-            background: #ECFDF5;
-            border: 1px solid #A7F3D0;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.95);
             padding: 4px 12px;
             border-radius: 999px;
             margin-top: 4px;
@@ -344,7 +342,7 @@
             margin-bottom: 6px;
         }
 
-        /* Indicador de Passo em Terracota */
+        /* Indicador de Passo em Purple */
         .form-step-number {
             display: inline-flex;
             align-items: center;
@@ -352,13 +350,13 @@
             width: 34px;
             height: 34px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #E65319 0%, #CE4009 100%);
+            background: linear-gradient(135deg, #603FEB 0%, #4A22D6 100%);
             color: #FFFFFF;
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 900;
             flex-shrink: 0;
-            box-shadow: 0 4px 14px rgba(206, 64, 9, 0.32);
+            box-shadow: 0 4px 14px rgba(96, 63, 235, 0.35);
         }
 
         .form-section-hint {
@@ -371,7 +369,7 @@
             .form-section-hint { padding-left: 0; }
         }
 
-        /* Seletores de Foco Corporal (Cards Clicáveis) com detalhes em Terracota */
+        /* Seletores de Foco Corporal (Cards Clicáveis) */
         .option-cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -407,11 +405,11 @@
             position: relative;
         }
 
-        /* Estado selecionado em Terracota com glow elegante */
+        /* Estado selecionado em Purple com glow elegante */
         .option-card-label input[type="radio"]:checked + .option-card-box {
-            background: #FFFDFB;
-            border-color: var(--orange-card);
-            box-shadow: 0 14px 30px rgba(206, 64, 9, 0.16), 0 0 0 2px var(--orange-card);
+            background: #FAF8FF;
+            border-color: #603FEB;
+            box-shadow: 0 14px 30px rgba(96, 63, 235, 0.16), 0 0 0 2px #603FEB;
             transform: translateY(-4px);
         }
 
@@ -419,8 +417,8 @@
             width: 50px;
             height: 50px;
             border-radius: 16px;
-            background: #FFF0EA;
-            color: var(--orange-card);
+            background: #F0ECFF;
+            color: #603FEB;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -430,9 +428,9 @@
         }
 
         .option-card-label input[type="radio"]:checked + .option-card-box .option-card-icon {
-            background: var(--orange-card);
+            background: #603FEB;
             color: #FFFFFF;
-            box-shadow: 0 6px 16px rgba(206, 64, 9, 0.35);
+            box-shadow: 0 6px 16px rgba(96, 63, 235, 0.35);
         }
 
         .option-card-title {
@@ -466,8 +464,8 @@
         }
 
         .option-card-label input[type="radio"]:checked + .option-card-box .option-card-check {
-            background: var(--orange-card);
-            border-color: var(--orange-card);
+            background: #603FEB;
+            border-color: #603FEB;
             color: #FFFFFF;
         }
 
@@ -509,15 +507,15 @@
         }
 
         .time-slot-label input[type="radio"]:checked + .time-slot-box {
-            background: #FFFDFB;
-            border-color: var(--orange-card);
-            box-shadow: 0 10px 22px rgba(206, 64, 9, 0.15), 0 0 0 1.5px var(--orange-card);
+            background: #FAF8FF;
+            border-color: #603FEB;
+            box-shadow: 0 10px 22px rgba(96, 63, 235, 0.16), 0 0 0 1.5px #603FEB;
             transform: translateY(-3px);
         }
 
         .time-slot-icon {
             font-size: 26px;
-            color: var(--orange-card);
+            color: #603FEB;
         }
 
         .time-slot-name {
@@ -576,7 +574,7 @@
         }
 
         .input-wrapper:focus-within iconify-icon {
-            color: var(--orange-card);
+            color: #603FEB;
         }
 
         .form-control {
@@ -597,8 +595,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--orange-card);
-            box-shadow: 0 0 0 4px rgba(206, 64, 9, 0.15);
+            border-color: #603FEB;
+            box-shadow: 0 0 0 4px rgba(96, 63, 235, 0.15);
         }
 
         /* ========================================================================
@@ -755,7 +753,7 @@
         /* Upload de Comprovante */
         .upload-receipt-area {
             background: #FFFFFF;
-            border: 2px dashed #DCC8B4;
+            border: 2px dashed #C3B4FF;
             border-radius: 20px;
             padding: 26px 20px;
             text-align: center;
@@ -765,8 +763,8 @@
             margin-top: 14px;
         }
         .upload-receipt-area:hover, .upload-receipt-area.dragover {
-            border-color: var(--orange-card);
-            background: #FFF9F5;
+            border-color: #603FEB;
+            background: #FAF8FF;
         }
 
         .upload-receipt-area input[type="file"] {
@@ -778,7 +776,7 @@
 
         .upload-icon {
             font-size: 42px;
-            color: var(--orange-card);
+            color: #603FEB;
             margin-bottom: 8px;
             display: inline-block;
         }
@@ -791,15 +789,15 @@
         }
         .upload-text span {
             font-size: 12.5px;
-            color: #8C7567;
+            color: #7A699B;
         }
 
         .file-attached-preview {
             display: none;
             margin-top: 14px;
             padding: 12px 18px;
-            background: #ECFDF5;
-            border: 1px solid #A7F3D0;
+            background: #F3EEFF;
+            border: 1.5px solid #C3B4FF;
             border-radius: 14px;
             align-items: center;
             justify-content: space-between;
@@ -811,7 +809,7 @@
             align-items: center;
             gap: 8px;
             font-size: 13.5px;
-            color: #065F46;
+            color: #240E82;
             font-weight: 700;
             word-break: break-all;
         }
@@ -822,7 +820,9 @@
             display: flex;
             align-items: center;
             padding: 4px;
+            transition: transform 0.2s ease;
         }
+        .file-attached-remove:hover { transform: scale(1.15); }
 
         /* Botão de Envio de Alta Conversão */
         .btn-submit-vip {
@@ -969,7 +969,7 @@
             <!-- Header -->
             <header class="form-header">
                 <div class="form-brand-row">
-                    <img src="images/logo-projeto-verao.webp" alt="Projeto Verão" class="form-brand-logo" fetchpriority="high">
+                    <img src="images/logo-projeto-verao.webp" onerror="this.onerror=null; this.src='../images/logo-projeto-verao.webp';" alt="Projeto Verão 60 Dias" class="form-brand-logo" fetchpriority="high">
                     <span class="badge-vip"><i></i> INSCRIÇÃO &amp; PAGAMENTO OFICIAL</span>
                 </div>
                 <h1 class="form-page-title">
