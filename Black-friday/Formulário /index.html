@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário VIP Black Friday | Projeto Verão 60 Dias Esteticmel</title>
-    <meta name="description" content="Personalize seu atendimento presencial e garanta sua vaga exclusiva de Black Friday no Projeto Verão 60 Dias da Esteticmel por R$ 1.890.">
+    <title>Personalização do Protocolo | Projeto Verão 60 Dias Esteticmel</title>
+    <meta name="description" content="Parabéns pela sua inscrição! Preencha suas preferências para a Dra. Esmeralda Sales calibrar sua fórmula e agendar suas sessões no Projeto Verão 60 Dias.">
     <link rel="icon" type="image/png" href="images/icon.png">
     <link rel="shortcut icon" href="images/icon.png">
     <link rel="apple-touch-icon" href="images/icon.png">
@@ -40,12 +40,8 @@
             --orange-hover: #B53606;
             --button-bg: #EAE6CD;
             --button-text: #CE4009;
-            --purple-card: #C3B4FF;
-            --purple-card-bg: linear-gradient(135deg, #C3B4FF 0%, #B5A2FF 100%);
-            --purple-dark: #381AB5;
-            --purple-deep: #240E82;
-            --purple-light: #F0ECFF;
-            --purple-accent: #603FEB;
+            --gold-accent: #FFD572;
+            --gold-light: #FFF1C5;
             --text-white: #FFFFFF;
             --text-dark: #22140D;
             --text-muted: #644E41;
@@ -53,7 +49,6 @@
             --bg-warm: #FFFBF6;
             --green-fresh: #10B981;
             --green-dark: #097A52;
-            --gold-accent: #FFD572;
             --font-title: 'Cooper BT', 'Cooper Black', 'Georgia', serif;
             --font-body: 'Public Sans', sans-serif;
             --topbar-bg: #10B981;
@@ -104,7 +99,7 @@
         .marquee-track span { padding: 0 30px; display: inline-flex; align-items: center; gap: 8px; }
         @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
 
-        /* Container Principal com FUNDO LARANJA e elementos roxos em destaque */
+        /* Container Principal com FUNDO LARANJA e elementos de Alto Contraste */
         .main-container {
             flex-grow: 1;
             padding: 48px 20px 88px;
@@ -113,13 +108,13 @@
             overflow: hidden;
         }
 
-        /* Brilhos atmosféricos em roxo e dourado no fundo laranja */
+        /* Brilhos atmosféricos dourados e quentes no fundo laranja */
         .main-container::before {
             content: "";
             position: absolute;
             top: -60px; right: -60px;
             width: 550px; height: 550px;
-            background: radial-gradient(circle, rgba(195, 180, 255, 0.28) 0%, transparent 68%);
+            background: radial-gradient(circle, rgba(255, 213, 114, 0.22) 0%, transparent 68%);
             border-radius: 50%;
             pointer-events: none;
             filter: blur(50px);
@@ -130,7 +125,7 @@
             position: absolute;
             bottom: 40px; left: -80px;
             width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(195, 180, 255, 0.22) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 65%);
             border-radius: 50%;
             pointer-events: none;
             filter: blur(50px);
@@ -166,21 +161,21 @@
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
         }
 
-        /* Badge VIP em Roxo / Lilás */
+        /* Badge VIP de Alto Contraste */
         .badge-vip {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--purple-card);
-            color: var(--purple-deep);
-            border: 2px solid rgba(255, 255, 255, 0.85);
-            padding: 7px 18px;
+            background: #FFFFFF;
+            color: #9C2E03;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            padding: 8px 18px;
             border-radius: 999px;
             font-size: 11.5px;
             font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            box-shadow: 0 6px 18px rgba(36, 14, 130, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
         }
         .badge-vip i {
             width: 8px; height: 8px;
@@ -199,12 +194,16 @@
             color: #FFFFFF;
             margin-bottom: 12px;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.18);
         }
 
         .form-page-title span {
-            color: var(--purple-card);
-            text-shadow: 0 2px 14px rgba(56, 26, 181, 0.3);
+            color: #FFD572;
+            background: linear-gradient(90deg, #FFFFFF 0%, #FFE599 40%, #FFD572 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.22));
         }
 
         .form-page-sub {
@@ -216,14 +215,14 @@
             text-shadow: 0 1px 4px rgba(0,0,0,0.12);
         }
 
-        /* CARD DE RESUMO VIP (ELEMENTO ROXO / LILÁS DE DESTAQUE) */
+        /* CARD DE RESUMO VIP (ALTO CONTRASTE E SOFISTICAÇÃO) */
         .vip-summary-card {
-            background: linear-gradient(135deg, #C3B4FF 0%, #D8CDFF 100%);
-            border: 2px solid rgba(255, 255, 255, 0.85);
+            background: #FFFDF9;
+            border: 2px solid rgba(255, 255, 255, 0.95);
             border-radius: 28px;
             padding: 26px 32px;
             margin-bottom: 34px;
-            box-shadow: 0 20px 45px rgba(36, 14, 130, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
             display: grid;
             grid-template-columns: 1fr auto;
             align-items: center;
@@ -243,35 +242,35 @@
         .vip-summary-content h4 {
             font-family: var(--font-title);
             font-size: 21px;
-            color: var(--purple-deep);
-            margin-bottom: 6px;
+            color: #22140D;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         @media (max-width: 768px) {
             .vip-summary-content h4 { justify-content: center; }
         }
 
         .vip-summary-content p {
-            font-size: 13.5px;
-            color: #2F1788;
-            line-height: 1.55;
+            font-size: 14px;
+            color: #5C4436;
+            line-height: 1.6;
             font-weight: 500;
         }
 
         .vip-summary-price {
             text-align: right;
-            border-left: 2px dashed rgba(56, 26, 181, 0.28);
+            border-left: 2px dashed #E8D5C4;
             padding-left: 26px;
             flex-shrink: 0;
         }
         @media (max-width: 768px) {
             .vip-summary-price {
                 border-left: none;
-                border-top: 1px dashed rgba(56, 26, 181, 0.28);
+                border-top: 1.5px dashed #E8D5C4;
                 padding-left: 0;
-                padding-top: 14px;
+                padding-top: 16px;
                 text-align: center;
             }
         }
@@ -279,28 +278,35 @@
         .vip-summary-price small {
             display: block;
             font-size: 11.5px;
-            color: #4928CC;
+            color: #065F46;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
         }
 
         .vip-summary-price strong {
             font-family: var(--font-title);
-            font-size: 36px;
-            color: var(--orange-card);
-            line-height: 1.05;
-            display: block;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-size: 28px;
+            color: #065F46;
+            line-height: 1.1;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 4px 0;
+            text-shadow: 0 1px 2px rgba(6, 95, 70, 0.1);
+        }
+        @media (max-width: 768px) {
+            .vip-summary-price strong { justify-content: center; }
         }
 
         .vip-summary-price span {
-            display: block;
-            font-size: 12px;
+            display: inline-block;
+            font-size: 11.5px;
             color: #065F46;
             font-weight: 800;
-            background: rgba(255,255,255,0.7);
-            padding: 3px 10px;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            padding: 4px 12px;
             border-radius: 999px;
             margin-top: 4px;
         }
@@ -343,7 +349,7 @@
             margin-bottom: 6px;
         }
 
-        /* Indicador de Passo em Roxo */
+        /* Indicador de Passo em Terracota */
         .form-step-number {
             display: inline-flex;
             align-items: center;
@@ -351,13 +357,13 @@
             width: 34px;
             height: 34px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #8C6FF7 0%, #603FEB 100%);
+            background: linear-gradient(135deg, #E65319 0%, #CE4009 100%);
             color: #FFFFFF;
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 900;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(96, 63, 235, 0.35);
+            box-shadow: 0 4px 14px rgba(206, 64, 9, 0.32);
         }
 
         .form-section-hint {
@@ -370,7 +376,7 @@
             .form-section-hint { padding-left: 0; }
         }
 
-        /* Seletores de Foco Corporal (Cards Clicáveis) com detalhes em Roxo */
+        /* Seletores de Foco Corporal (Cards Clicáveis) com detalhes em Terracota */
         .option-cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -406,11 +412,11 @@
             position: relative;
         }
 
-        /* Estado selecionado em Roxo com glow elegante */
+        /* Estado selecionado em Terracota com glow elegante */
         .option-card-label input[type="radio"]:checked + .option-card-box {
-            background: #FFFFFF;
-            border-color: var(--purple-accent);
-            box-shadow: 0 14px 30px rgba(96, 63, 235, 0.18), 0 0 0 2px var(--purple-accent);
+            background: #FFFDFB;
+            border-color: var(--orange-card);
+            box-shadow: 0 14px 30px rgba(206, 64, 9, 0.16), 0 0 0 2px var(--orange-card);
             transform: translateY(-4px);
         }
 
@@ -418,8 +424,8 @@
             width: 50px;
             height: 50px;
             border-radius: 16px;
-            background: var(--purple-light);
-            color: var(--purple-accent);
+            background: #FFF0EA;
+            color: var(--orange-card);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -429,9 +435,9 @@
         }
 
         .option-card-label input[type="radio"]:checked + .option-card-box .option-card-icon {
-            background: var(--purple-accent);
+            background: var(--orange-card);
             color: #FFFFFF;
-            box-shadow: 0 6px 16px rgba(96, 63, 235, 0.35);
+            box-shadow: 0 6px 16px rgba(206, 64, 9, 0.35);
         }
 
         .option-card-title {
@@ -465,12 +471,12 @@
         }
 
         .option-card-label input[type="radio"]:checked + .option-card-box .option-card-check {
-            background: var(--purple-accent);
-            border-color: var(--purple-accent);
+            background: var(--orange-card);
+            border-color: var(--orange-card);
             color: #FFFFFF;
         }
 
-        /* Seletores de Turno / Horário com toque em Roxo */
+        /* Seletores de Turno / Horário */
         .time-slots-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -508,15 +514,15 @@
         }
 
         .time-slot-label input[type="radio"]:checked + .time-slot-box {
-            background: #FFFFFF;
-            border-color: var(--purple-accent);
-            box-shadow: 0 10px 22px rgba(96, 63, 235, 0.18), 0 0 0 1px var(--purple-accent);
+            background: #FFFDFB;
+            border-color: var(--orange-card);
+            box-shadow: 0 10px 22px rgba(206, 64, 9, 0.15), 0 0 0 1.5px var(--orange-card);
             transform: translateY(-3px);
         }
 
         .time-slot-icon {
             font-size: 26px;
-            color: var(--purple-accent);
+            color: var(--orange-card);
         }
 
         .time-slot-name {
@@ -575,7 +581,7 @@
         }
 
         .input-wrapper:focus-within iconify-icon {
-            color: var(--purple-accent);
+            color: var(--orange-card);
         }
 
         .form-control {
@@ -596,8 +602,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--purple-accent);
-            box-shadow: 0 0 0 4px rgba(96, 63, 235, 0.15);
+            border-color: var(--orange-card);
+            box-shadow: 0 0 0 4px rgba(206, 64, 9, 0.15);
         }
 
         /* Botão de Envio de Alta Conversão */
@@ -665,11 +671,11 @@
 
         .modal-icon-success {
             width: 76px; height: 76px; border-radius: 50%;
-            background: var(--purple-light);
-            color: var(--purple-accent); font-size: 40px;
+            background: #ECFDF5;
+            color: #10B981; font-size: 40px;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 6px 18px rgba(96, 63, 235, 0.2);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
         }
 
         .modal-box h3 {
@@ -713,12 +719,16 @@
         }
 
         .footer-social-row a {
-            color: var(--purple-card);
+            color: #FFD572;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-weight: 700;
+            transition: color 0.2s ease;
+        }
+        .footer-social-row a:hover {
+            color: #FFFFFF;
         }
     </style>
 </head>
@@ -727,14 +737,14 @@
     <!-- Top Bar Marquee -->
     <div class="top-bar-container">
         <div class="marquee-track">
-            <span>🔥 GRUPO VIP BLACK FRIDAY • FORMULÁRIO DE PRIORIDADE &amp; HORÁRIO • SALVADOR - BA</span>
-            <span>⚡ CONDIÇÃO ESPECIAL R$ 1.890 • APENAS 15 VAGAS OFICIAIS • DRA. ESMERALDA SALES</span>
-            <span>🔥 GRUPO VIP BLACK FRIDAY • FORMULÁRIO DE PRIORIDADE &amp; HORÁRIO • SALVADOR - BA</span>
-            <span>⚡ CONDIÇÃO ESPECIAL R$ 1.890 • APENAS 15 VAGAS OFICIAIS • DRA. ESMERALDA SALES</span>
+            <span>🎉 INSCRIÇÃO CONFIRMADA • BOAS-VINDAS AO PROJETO VERÃO 60 DIAS • SALVADOR - BA</span>
+            <span>✨ PREENCHA SUAS PREFERÊNCIAS DE ATENDIMENTO • DRA. ESMERALDA SALES</span>
+            <span>🎉 INSCRIÇÃO CONFIRMADA • BOAS-VINDAS AO PROJETO VERÃO 60 DIAS • SALVADOR - BA</span>
+            <span>✨ PREENCHA SUAS PREFERÊNCIAS DE ATENDIMENTO • DRA. ESMERALDA SALES</span>
         </div>
     </div>
 
-    <!-- Main Container com FUNDO LARANJA e elementos PURPLE -->
+    <!-- Main Container com FUNDO LARANJA e elementos de Alto Contraste -->
     <main class="main-container">
         <div class="wrap">
             
@@ -742,31 +752,31 @@
             <header class="form-header">
                 <div class="form-brand-row">
                     <img src="images/logo-projeto-verao.webp" alt="Projeto Verão" class="form-brand-logo" fetchpriority="high">
-                    <span class="badge-vip"><i></i> GRUPO VIP EXCLUSIVO</span>
+                    <span class="badge-vip"><i></i> INSCRIÇÃO CONFIRMADA • BOAS-VINDAS</span>
                 </div>
                 <h1 class="form-page-title">
                     Personalize seu <span>Projeto Verão 60 Dias</span>
                 </h1>
                 <p class="form-page-sub">
-                    Preencha suas preferências abaixo para priorizarmos o seu turno na clínica, calibrarmos o seu protocolo e garantirmos sua condição de Black Friday por R$ 1.890.
+                    Parabéns pela sua decisão! Preencha suas preferências abaixo para a <strong>Dra. Esmeralda Sales</strong> calibrar sua formulação de injetáveis, organizar sua agenda na clínica em Stella Maris e liberar seus bônus imediatos.
                 </p>
             </header>
 
-            <!-- Card de Resumo VIP (ELEMENTO ROXO / LILÁS EM DESTAQUE) -->
+            <!-- Card de Resumo VIP (PÓS-COMPRA / CONFIRMAÇÃO) -->
             <div class="vip-summary-card">
                 <div class="vip-summary-content">
                     <h4>
-                        <iconify-icon icon="lucide:sparkles" style="color: var(--purple-accent); font-size: 24px;"></iconify-icon>
-                        Pacote Oficial Black Friday Esteticmel
+                        <iconify-icon icon="lucide:check-circle-2" style="color: var(--green-fresh); font-size: 24px;"></iconify-icon>
+                        Seu Protocolo Oficial Está Garantido!
                     </h4>
                     <p>
-                        Inclui 1 dia por semana com terapia detox ortomolecular, reeducação alimentar metabólica, coquetel de injetáveis (Morosil, L-Baiba, L-Carnitina, Magnésio, Vit C e Complexo B) + 2 Bônus: Guia de 80 Receitas e Consultoria com Personal Douglas.
+                        Seu programa de 60 dias inclui 1 sessão presencial por semana com terapia detox ortomolecular, reeducação metabólica, coquetel de injetáveis avançados (Morosil, L-Baiba, L-Carnitina, Magnésio, Vit C e Complexo B) + 2 Bônus: Guia de 80 Receitas e Consultoria com Personal Douglas.
                     </p>
                 </div>
                 <div class="vip-summary-price">
-                    <small>Condição VIP</small>
-                    <strong>R$ 1.890</strong>
-                    <span>ou em até 12x no cartão</span>
+                    <small>Status da Inscrição</small>
+                    <strong><iconify-icon icon="solar:check-circle-bold" style="font-size: 26px; color: var(--green-fresh);"></iconify-icon> Ativa</strong>
+                    <span>Vaga 100% Confirmada</span>
                 </div>
             </div>
 
@@ -778,10 +788,10 @@
                     <div class="form-section">
                         <div class="form-section-title">
                             <span class="form-step-number">1</span>
-                            <span>Qual é o seu objetivo prioritário?</span>
+                            <span>Qual é o foco prioritário do seu tratamento?</span>
                         </div>
                         <p class="form-section-hint">
-                            Selecione o direcionamento principal para a formulação dos seus injetáveis e terapia detox.
+                            A Dra. Esmeralda Sales utilizará sua resposta para calibrar os ativos dos seus injetáveis e a intensidade do protocolo detox.
                         </p>
 
                         <div class="option-cards-grid">
@@ -830,10 +840,10 @@
                     <div class="form-section">
                         <div class="form-section-title">
                             <span class="form-step-number">2</span>
-                            <span>Qual turno você prefere ser atendida em Salvador?</span>
+                            <span>Qual turno você prefere para suas sessões presenciais?</span>
                         </div>
                         <p class="form-section-hint">
-                            As sessões ocorrem 1 vez por semana na clínica em Stella Maris. Selecione sua preferência de turno.
+                            As sessões ocorrem 1 vez por semana na clínica em Stella Maris. Informe sua preferência para organizarmos seu primeiro agendamento.
                         </p>
 
                         <div class="time-slots-grid">
@@ -879,14 +889,14 @@
                         </div>
                     </div>
 
-                    <!-- Passo 3: Dados Pessoais -->
+                    <!-- Passo 3: Dados da Paciente -->
                     <div class="form-section">
                         <div class="form-section-title">
                             <span class="form-step-number">3</span>
-                            <span>Seus dados para reserva da vaga</span>
+                            <span>Confirmação dos seus dados de atendimento</span>
                         </div>
                         <p class="form-section-hint">
-                            Para formalizarmos sua prioridade na agenda e direcionarmos sua conversa no WhatsApp particular.
+                            Estes dados serão encaminhados diretamente para a Dra. Esmeralda Sales para abertura do seu prontuário e envio dos seus bônus.
                         </p>
 
                         <div class="inputs-grid">
@@ -917,17 +927,21 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Campos ocultos para a planilha -->
+                        <input type="hidden" name="Origem" value="Formulário Pós-Compra - Projeto Verão 60 Dias">
+                        <input type="hidden" name="Status" value="Protocolo Ativado">
                     </div>
 
                     <!-- Botão de Envio -->
                     <button type="submit" class="btn-submit-vip" id="submitBtn">
                         <iconify-icon icon="logos:whatsapp-icon"></iconify-icon>
-                        <span>CONFIRMAR HORÁRIO E GARANTIR VAGA NO WHATSAPP</span>
+                        <span>ENVIAR PREFERÊNCIAS PARA A DRA. ESMERALDA</span>
                     </button>
 
                     <div class="submit-disclaimer">
                         <iconify-icon icon="lucide:shield-check"></iconify-icon>
-                        <span>Seus dados são 100% confidenciais. Você falará diretamente com nossa equipe no WhatsApp: <strong>(71) 99711-0471</strong>.</span>
+                        <span>Suas preferências serão enviadas diretamente para a Dra. Esmeralda Sales no WhatsApp: <strong>(71) 99711-0471</strong> para agendamento da 1ª sessão.</span>
                     </div>
 
                 </form>
@@ -942,13 +956,13 @@
             <div class="modal-icon-success">
                 <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
             </div>
-            <h3>Preferências Registradas!</h3>
+            <h3>Preferências Registradas com Sucesso!</h3>
             <p id="modalDesc">
-                Estamos abrindo o WhatsApp particular da Esteticmel com suas preferências de horário e foco corporal já preenchidas.
+                Estamos abrindo a conversa no WhatsApp da <strong>Dra. Esmeralda Sales</strong> com todas as suas informações para agendar seu início e liberar seu Guia de Receitas.
             </p>
             <a href="#" id="directWhatsAppLink" target="_blank" class="btn-whatsapp-direct">
                 <iconify-icon icon="logos:whatsapp-icon" style="font-size: 22px;"></iconify-icon>
-                <span>ABRIR CONVERSA NO WHATSAPP</span>
+                <span>CONVERSAR COM A DRA. ESMERALDA</span>
             </a>
         </div>
     </div>
@@ -1004,31 +1018,79 @@
             const turnoEl = document.querySelector('input[name="turno"]:checked');
             const turno = turnoEl ? turnoEl.value : 'Manhã';
 
-            const mensagem = 
-`Olá, equipe Esteticmel! Sou do Grupo VIP da Black Friday e acabei de preencher minhas preferências para o Projeto Verão 60 Dias:
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<iconify-icon icon="line-md:loading-loop" style="font-size: 22px;"></iconify-icon> <span>SALVANDO PREFERÊNCIAS...</span>';
+            }
 
-👤 Nome: ${nome}
+            const mensagem = 
+`Olá, Dra. Esmeralda! Acabei de garantir minha vaga no Projeto Verão 60 Dias e preenchi minhas preferências de início:
+
+👤 Nome da Paciente: ${nome}
 📱 WhatsApp: ${telefone}
 ✉️ E-mail: ${email}
-🎯 Meu Foco: ${foco}
-⏰ Turno Preferido: ${turno}
+🎯 Foco do Meu Tratamento: ${foco}
+⏰ Turno Preferido para Atendimento: ${turno}
 
-Quero garantir minha vaga pela oferta especial de R$ 1.890 com os 2 bônus inclusos!`;
+Aguardo suas orientações para combinarmos o dia da minha 1ª sessão presencial na clínica e receber o acesso aos meus 2 bônus! ✨`;
 
             const encodedMsg = encodeURIComponent(mensagem);
             const wppUrl = `https://wa.me/5571997110471?text=${encodedMsg}`;
 
             const directLink = document.getElementById('directWhatsAppLink');
-            directLink.href = wppUrl;
+            if (directLink) directLink.href = wppUrl;
 
-            const modal = document.getElementById('successModal');
-            modal.classList.add('active');
+            // Dados estruturados enviados para a planilha / forms via SheetMonkey
+            const webhookUrl = 'https://api.sheetmonkey.io/form/qGaWwLaRCBV5nnZzuabrkR';
+            const payload = {
+                Nome: nome,
+                Telefone: telefone,
+                Email: email,
+                Objetivo_Foco: foco,
+                Turno_Atendimento: turno,
+                Etapa: 'Pós-Compra',
+                Origem: 'Formulário Personalização - Projeto Verão 60 Dias',
+                Data_Cadastro: new Date().toLocaleString('pt-BR', { timeZone: 'America/Bahia' }),
+                Timestamp: new Date().toISOString()
+            };
 
-            try {
-                window.open(wppUrl, '_blank');
-            } catch (err) {
-                console.log('Pop-up bloqueado, o usuário pode clicar no botão do modal.');
-            }
+            let proceeded = false;
+            const finishSubmission = () => {
+                if (proceeded) return;
+                proceeded = true;
+
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+
+                const modal = document.getElementById('successModal');
+                if (modal) modal.classList.add('active');
+
+                try {
+                    window.open(wppUrl, '_blank');
+                } catch (err) {
+                    console.log('Pop-up bloqueado pelo navegador, link disponível no modal.');
+                }
+            };
+
+            // Timeout de segurança (1.4s) para garantir redirecionamento mesmo se a rede oscilar
+            const safetyTimeout = setTimeout(finishSubmission, 1400);
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                clearTimeout(safetyTimeout);
+                finishSubmission();
+            }).catch((err) => {
+                console.warn('Registro na planilha:', err);
+                clearTimeout(safetyTimeout);
+                finishSubmission();
+            });
         }
     </script>
 </body>
